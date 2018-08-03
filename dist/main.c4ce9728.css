@@ -168,6 +168,11 @@ header {
       .landing .landing-content h4:hover {
         transform: scale(1.2); }
 
+@media only screen and (max-width: 768px) {
+  .landing-content {
+    transition: all 0.3s;
+    transform: scale(0.75); } }
+
 #about {
   background: white; }
   #about .about-title {
