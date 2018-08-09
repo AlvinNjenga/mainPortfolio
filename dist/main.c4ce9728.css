@@ -285,7 +285,7 @@ header {
         height: 40%;
         width: 100%; }
       #portfolio .row .project-box .project-img-three {
-        background: url("screenshot.4c503fe6.png") no-repeat center center;
+        background: url("emailScreenshot.5f1d84b7.png") no-repeat center center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -347,6 +347,12 @@ header {
         #portfolio .row .project-box .project-info p {
           font-style: italic;
           color: grey; }
+        #portfolio .row .project-box .project-info h6 {
+          color: grey;
+          padding: 0;
+          font-size: 14px;
+          margin-top: -14px;
+          font-style: italic; }
 
 #contact {
   background: black;

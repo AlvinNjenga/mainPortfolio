@@ -169,7 +169,7 @@ module.exports = reloadCSS;
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../img/coding-background.jpg":[["coding-background.f4b9a40e.jpg","img/coding-background.jpg"],"img/coding-background.jpg"],"./../img/emmaScreenshot.png":[["emmaScreenshot.1e5230af.png","img/emmaScreenshot.png"],"img/emmaScreenshot.png"],"./../img/portfolioScreenshot.png":[["portfolioScreenshot.b4d64251.png","img/portfolioScreenshot.png"],"img/portfolioScreenshot.png"],"./../img/screenshot.png":[["screenshot.4c503fe6.png","img/screenshot.png"],"img/screenshot.png"],"./../adamFont/adamFont.otf":[["adamFont.34afad16.otf","adamFont/adamFont.otf"],"adamFont/adamFont.otf"],"_css_loader":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./../img/coding-background.jpg":[["coding-background.f4b9a40e.jpg","img/coding-background.jpg"],"img/coding-background.jpg"],"./../img/emmaScreenshot.png":[["emmaScreenshot.1e5230af.png","img/emmaScreenshot.png"],"img/emmaScreenshot.png"],"./../img/portfolioScreenshot.png":[["portfolioScreenshot.b4d64251.png","img/portfolioScreenshot.png"],"img/portfolioScreenshot.png"],"./../img/emailScreenshot.png":[["emailScreenshot.5f1d84b7.png","img/emailScreenshot.png"],"img/emailScreenshot.png"],"./../img/screenshot.png":[["screenshot.4c503fe6.png","img/screenshot.png"],"img/screenshot.png"],"./../adamFont/adamFont.otf":[["adamFont.34afad16.otf","adamFont/adamFont.otf"],"adamFont/adamFont.otf"],"_css_loader":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -198,7 +198,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64575' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65423' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

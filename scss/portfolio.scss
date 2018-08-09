@@ -56,7 +56,7 @@
         width:100%;
       }
       .project-img-three {
-        background: url("../img/screenshot.png") no-repeat center center;
+        background: url("../img/emailScreenshot.png") no-repeat center center;
 			  -webkit-background-size: cover;
 			  -moz-background-size: cover;
 			  -o-background-size: cover;
@@ -129,6 +129,13 @@
         p {
           font-style: italic;
           color: grey;
+        }
+        h6 {
+          color: grey;
+          padding: 0;
+          font-size: 14px;
+          margin-top: -14px;
+          font-style: italic;
         }
       }
     }
