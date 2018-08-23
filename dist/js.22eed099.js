@@ -103,73 +103,77 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+})({"js/index.js":[function(require,module,exports) {
+$(document).ready(function () {
+  //Slideshow
+  $("#slideshow > div:gt(0)").hide();
 
-  return bundleURL;
-}
+  setInterval(function () {
+    $('#slideshow > div:first').fadeOut(1000).next().fadeIn(2000).end().appendTo('#slideshow');
+  }, 3000);
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
+  //Smooth Scrolling with jQuery
 
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
+  // Select all links with hashes
+  $('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]').not('[href="#0"]').click(function (event) {
+    // On-page links
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function () {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) {
+            // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
       }
     }
+  });
+});
 
-    cssTimeout = null;
-  }, 50);
-}
+$(document).ready(function () {
+  // Collapsing menu.
+  function classToggle() {
+    var navs = document.querySelectorAll('.navbar-items');
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/main.scss":[function(require,module,exports) {
+    navs.forEach(function (nav) {
+      return nav.classList.toggle('navbar-toggleshow');
+    });
+    console.log('toggle that shit');
+  };
 
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./../img/coding-background.jpg":[["coding-background.f4b9a40e.jpg","img/coding-background.jpg"],"img/coding-background.jpg"],"./../img/emmaScreenshot.png":[["emmaScreenshot.1e5230af.png","img/emmaScreenshot.png"],"img/emmaScreenshot.png"],"./../img/portfolioScreenshot.png":[["portfolioScreenshot.b4d64251.png","img/portfolioScreenshot.png"],"img/portfolioScreenshot.png"],"./../img/emailScreenshot.png":[["emailScreenshot.5f1d84b7.png","img/emailScreenshot.png"],"img/emailScreenshot.png"],"./../img/fluid-hybrid.png":[["fluid-hybrid.a4662f3c.png","img/fluid-hybrid.png"],"img/fluid-hybrid.png"],"./../adamFont/adamFont.otf":[["adamFont.34afad16.otf","adamFont/adamFont.otf"],"adamFont/adamFont.otf"],"_css_loader":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  document.querySelector('.navbar-link-toggle').addEventListener('click', classToggle);
+});
+
+//Menu to close automatically.
+document.addEventListener("DOMContentLoaded", function (event) {
+  function hideList() {
+    var element = document.getElementById('navbar-items');
+    element.classList.remove('navbar-toggleshow');
+    console.log('remove that shit.');
+  }
+
+  var element = document.getElementById('navbar-items');
+  element.addEventListener("click", hideList);
+  console.log(element);
+});
+},{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -198,7 +202,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58028' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64046' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -339,4 +343,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+},{}]},{},["../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
+//# sourceMappingURL=/js.22eed099.map
